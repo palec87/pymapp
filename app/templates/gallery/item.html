@@ -1,0 +1,23 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<html>
+<body>
+    <h1>{{demo['title']}}</h1>
+    <h3>
+        <a href="{{ url_for('gallery.index') }}">Return to gallery</a>
+        <a class="action" 
+           href="{{ url_for('demo.demo', id=name) }}">
+           Take me to random demo
+        </a>
+
+    </h3>
+    <div id="chart" class="chart"></div>
+    <div>{{', '.join(demo['tags'])}}</div>
+</body>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graphs = {{ plot | safe }};
+    Plotly.plot('chart',graphs,{});
+</script>
+</html>

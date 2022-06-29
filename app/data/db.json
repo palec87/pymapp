@@ -1,0 +1,125 @@
+{
+    "001": {
+        "title": "Fourier Transform Intro",
+        "author": "DP",
+        "created": "22-05-27",
+        "type": "plotly",
+        "url": "None",
+        "tags_math": [
+            "oscillations",
+            "goniometry",
+            "Fourier series"
+            ],
+        "tags_python": [
+            "signal processing"],
+        "tags_topic": [
+            "introduction"],
+        "pipe_name": "fft_intro",
+        "toc_figure": "fig/fft_intro.png"
+    },
+
+    "002": {
+        "title": "Pee in the sea",
+        "author": "DP",
+        "created": "22-05-28",
+        "type": "dash",
+        "url": "./demo/app002/",
+        "tags_math": [
+            "binomial",
+            "probability",
+            "Avogadro constant"
+        ],
+        "tags_python": [
+            "scipy.stats",
+            "for loops"],
+        "tags_topic": [
+            "chemistry",
+            "molecules",
+            "isotopes"    
+        ],
+        "pipe_name": "prob_pee_sea",
+        "toc_figure": "fig/pee_sea.png"
+    },
+
+    "003": {
+        "title": "Compare Pizza sizes",
+        "author": "DP",
+        "created": "22-05-28",
+        "tags_math": [
+            "quadratic function",
+            "area calculation"
+        ],
+        "tags_python": [
+            "fsolve",
+            "define function"],
+        "tags_topic": [
+            "payoff",
+            "area comparison"
+        ],
+        "pipe_name": "quad_pizza",
+        "toc_figure": "fig/pizza.png"
+    },
+
+    "004": {
+        "title": "Sets Intro",
+        "author": "DP",
+        "created": "22-05-28",
+        "type": "dash",
+        "url": "./demo/app002/",
+        "tags_math": [
+            "sets",
+            "intersection",
+            "union",
+            "Venn diagram"
+        ],
+        "tags_python": [
+            "set operations",
+            "plot Venn "],
+        "tags_topic": [
+            "introduction"],
+        "pipe_name": "sets_intro",
+        "toc_figure": "fig/sets_intro.png"
+    },
+    "005": {
+        "title": "Forest firest",
+        "author": "DP",
+        "created": "22-05-28",
+        "tags_math": [
+            "sets",
+            "intersection",
+            "Venn diagram",
+            "quantile"
+        ],
+        "tags_python": [
+            "pandas",
+            "plot Venn"],
+        "tags_topic": [
+            "Ecology",
+            "Arson",
+            "GDP",
+            "Forests"
+        ],
+        "pipe_name": "sets_forest_fires",
+        "toc_figure": "fig/sets_forest_fires.png"
+    },
+    "006": {
+        "title": "Demand curve",
+        "author": "DP",
+        "created": "22-05-28",
+        "tags_math": [
+            "quadratic function",
+            "Inequality"
+        ],
+        "tags_python": [
+            "interpolation",
+            "Array"],
+        "tags_topic": [
+            "Economics",
+            "Demand curve",
+            "Profit"
+        ],
+        "pipe_name": "quad_demand",
+        "toc_figure": "fig/quad_demand.png"
+    }
+
+}

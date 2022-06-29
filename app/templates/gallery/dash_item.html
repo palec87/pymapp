@@ -1,0 +1,21 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<html>
+<body>
+    <h1>{{demo['title']}}</h1>
+    <h3>
+        <a href="{{ url_for('gallery.index') }}">Return to gallery</a>
+        <a class="action" 
+           href="{{ url_for('demo.demo', id=name) }}">
+           Take me to random demo
+        </a>
+    </h3>
+    <div class="dash">
+        <iframe 
+            src=".{{ dash_url }}"
+            frameborder="0">
+        </iframe>
+    </div>
+    <div>{{', '.join(demo['tags'])}}</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} Demos</title>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<nav>
+  <h1>
+    <a href= "{{url_for('home.home') }}">Pymarad</a>
+  </h1>
+</nav>
+<body>
+<div class="sidebar">
+  <h4>
+    {% block tags1 %} Math Topics {% endblock %}
+  </h4>
+  {% for link in links[0] %}
+    <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">{{ link }}</a>
+  {% endfor %}
+  <h4>
+  {% block tags2 %} Python Topics {% endblock %}
+  </h4>
+  {% for link in links[1] %}
+    <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">{{ link }}</a>
+  {% endfor %}
+
+  <h4>
+    {% block tags3 %} General Topics {% endblock %}
+  </h4>
+  {% for link in links[2] %}
+    <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">{{ link }}</a>
+  {% endfor %}
+</div>
+
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
+</body>

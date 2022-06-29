@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Welcome to Pymarad{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    Pymarad attemps to combine high school math, real-world topics and programming in Python.
+  </p>
+  <p>
+    You can try it out yourself in various ways.
+  </p>
+  <p> Check out the 
+    <a
+    href="{{ url_for('gallery.index') }}"
+    style="display:inline-block">
+      gallery
+    </a>
+    with the project demos, which tease you with
+    some results of the projects themselves.
+  </p>
+  <p>Each project is also compiled into task and solution work sheets, which can be
+    accessed via links in each of the demos.
+  </p>
+  <p>
+    Work sheets open on the server, are interactive and well commented
+    to guide through some python coding experience.
+  </p>
+  <p>
+    Btw. There is aslo a
+    <a 
+      href="https://www.youtube.com/channel/UC9FRDaR5N5AzggJGQUaiCTQ"
+      target="_blank"
+      style="display:inline-block">
+        YouTube channel
+    </a>  
+    introducing every project task.
+  </p>
+    <article class="post">
+      <header>
+        <div class="demo">
+          <a class="action" href="{{ url_for('gallery.index') }}">Go to gallery</a>
+        </div>
+
+        <div class="demo">
+          <a class="action" 
+            href="https://github.com/palec87/pymarad"
+            target="_blank">
+              Github for Pymarad
+          </a>
+        </div>
+        
+        <div class="demo">
+          <a class="action" 
+            href="https://github.com/palec87"
+            target="_blank">
+              Github for this app
+          </a>
+        </div>
+      </header>
+    </article>
+{% endblock %}
