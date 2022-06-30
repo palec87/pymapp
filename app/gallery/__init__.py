@@ -13,10 +13,6 @@ from collections import defaultdict as ddc
 # from flaskr.auth import login_required
 # from flaskr.db import get_db
 
-# with open(current_app.root_path+'/data/db.json') as f:
-#     global DB
-#     DB = json.load(f)
-
 bp_gal = Blueprint('gallery', __name__, url_prefix='/gallery')
 bp_demo = Blueprint('demo', __name__, url_prefix='/demo')
 

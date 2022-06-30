@@ -37,9 +37,12 @@ def create_app(test_config=None):
 
     # # root
     # @app.route('/home')
-    from . import home
-    app.register_blueprint(home.bp_home)
+    from . import routes
+    app.register_blueprint(routes.bp_home)
     app.add_url_rule('/', endpoint='home')
+
+    app.register_blueprint(routes.bp_contact)
+    app.add_url_rule('/contact', endpoint='contact')
 
     from . import gallery
     app.register_blueprint(gallery.bp_gal)

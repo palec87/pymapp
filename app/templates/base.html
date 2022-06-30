@@ -4,29 +4,47 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 <nav>
-  <h1>
-    <a href= "{{url_for('home.home') }}">Pymarad</a>
-  </h1>
+  <ul>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('gallery.index') }}">Gallery</a></li>
+    <li style="float:right"><a href="{{ url_for('contact') }}">Contact</a></li>
+    <!-- <li style="float:right"><a class="active" href="">About</a></li> -->
+  </ul>
 </nav>
+
+<head>
+  <img class='logo'
+      src="{{ url_for('static', filename='fig/pymarad_logo_web.png') }}"
+      alt="logo">
+
+  <!-- <h1>
+    <a href= "{{url_for('home') }}">Pymarad</a>
+  </h1> -->
+
+</head>
+
+  
+
 <body>
 <div class="sidebar">
+  <h4>
+    {% block tags3 %} Main Topics {% endblock %}
+  </h4>
+  {% for link in links[2] %}
+    <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">{{ link }}</a>
+  {% endfor %}
+
   <h4>
     {% block tags1 %} Math Topics {% endblock %}
   </h4>
   {% for link in links[0] %}
     <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">{{ link }}</a>
   {% endfor %}
+
   <h4>
   {% block tags2 %} Python Topics {% endblock %}
   </h4>
   {% for link in links[1] %}
-    <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">{{ link }}</a>
-  {% endfor %}
-
-  <h4>
-    {% block tags3 %} General Topics {% endblock %}
-  </h4>
-  {% for link in links[2] %}
     <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">{{ link }}</a>
   {% endfor %}
 </div>
