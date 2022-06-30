@@ -6,6 +6,7 @@ import app.db as db
 
 bp_home = Blueprint('home', __name__, url_prefix='/')
 bp_contact = Blueprint('contact', __name__, url_prefix='/')
+bp_todo = Blueprint('not-implemented', __name__)
 
 
 @bp_home.route('/')
@@ -21,3 +22,10 @@ def contact():
                 'contact.html',
                 links=db.get_tags(),
                 )
+
+@bp_todo.route('/not-implemented')
+def todo():
+    return render_template(
+                'todo.html',
+                links=db.get_tags(),
+                )               

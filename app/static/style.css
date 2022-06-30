@@ -1,13 +1,17 @@
 html {
     font-family: sans-serif;
-    background: #eee;
+    background-color: #eee;
     padding: 1rem;
   }
-  
+
   body {
     max-width: 960px;
+    min-height: 960px;
     margin: 0 auto;
     background: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(222,104,151);
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -23,23 +27,18 @@ html {
   }
 
   .input-field {
-    /* border-radius: 10px; */
-    /* text-indent: 50px; */
-    /* font-size: 2em; */
-    /* border-color: #000000; */
     width: 30%;
-    /* padding-top: 5px; */
     padding-left: 50px;
-    /* padding-bottom: 5px; */
+
   }
   
   a {
     color: #377ba8;
-    display: flex;
+    /* display: flex; */
   }
 
   a.text {
-    display:inline-block;
+    display: inline-block;
   }
 
   .sidebar a {
@@ -66,11 +65,7 @@ html {
   }
   
   nav {
-    /* background: lightgray; */
     background: rgb(211, 211, 211);
-    border-color: rgba(242,0,0,0.2);
-    border-style: solid;
-    border-width: 1.3px;
     display: flex;
     align-items: center;
     padding: 0 0.5rem;
@@ -103,7 +98,6 @@ html {
       height:200%;
       float:left;
       position:relative;
-      /* background: #eee; */
       padding-bottom: 20px;
       padding-left: 1%;
   }
@@ -126,26 +120,18 @@ html {
 
   img.logo {
     width:100%;
+    max-width: 960px;
     flex:auto;
     display: flex;
-    /* align-items: flex-end; */
-
   }
+
   .demo img {
     float: right;
     width: 150px;
     height: 100px;
     padding-top: 1%;
-    /* background: #555; */
-  }
 
-  /* .iframe {
-    position: absolute;
-    background: transparent;
-    width: 100%;
-    height:100%;
-    overflow-y: visible
-  } */
+  }
   
   .flash {
     margin: 1em 0;
@@ -213,26 +199,23 @@ html {
 
   .chart {
     position: relative;
-    margin-bottom: 1em;
-    /* display: flex; */
-    border-style: double;
-    width: 100%;
-    height: 100%;
-    /* padding-top: 56.25%; */
+    display: flex;
+    max-width: 960px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(222,104,151);
+    margin: 1em;
   }
+
 
   .dash {
     display: flex;
     flex-direction: column;
-    border-style: double;
     margin-bottom: 1em;
-    /* height: 600px;
-    width: 100%; */
   }
 
   .dash iframe{
     position:relative;
-    height: 800px;
-    
+    height: 1000px;
 
   }

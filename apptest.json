@@ -1,1 +1,25 @@
-{}
+{
+    "002": {
+        "title": "Pee in the sea",
+        "author": "DP",
+        "created": "22-05-28",
+        "type": "dash",
+        "url": "./demo/app002/",
+        "tags_math": [
+            "binomial",
+            "probability",
+            "Avogadro constant"
+        ],
+        "tags_python": [
+            "scipy.stats",
+            "for loops"
+        ],
+        "tags_topic": [
+            "chemistry",
+            "molecules",
+            "isotopes"
+        ],
+        "pipe_name": "prob_pee_sea",
+        "toc_figure": "fig/pee_sea.png"
+    }
+}

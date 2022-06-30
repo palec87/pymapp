@@ -2,7 +2,7 @@
     "001": {
         "title": "Fourier Transform Intro",
         "author": "DP",
-        "created": "22-05-27",
+        "last_update": "22-06-30",
         "type": "plotly",
         "url": "None",
         "tags_math": [
@@ -21,7 +21,7 @@
     "002": {
         "title": "Pee in the sea",
         "author": "DP",
-        "created": "22-05-28",
+        "last_update": "22-06-30",
         "type": "dash",
         "url": "./demo/app002/",
         "tags_math": [
@@ -44,7 +44,8 @@
     "003": {
         "title": "Compare Pizza sizes",
         "author": "DP",
-        "created": "22-05-28",
+        "last_update": "22-06-30",
+        "type": "todo",
         "tags_math": [
             "quadratic function",
             "area calculation"
@@ -63,8 +64,8 @@
     "004": {
         "title": "Sets Intro",
         "author": "DP",
-        "created": "22-05-28",
-        "type": "dash",
+        "last_update": "22-06-30",
+        "type": "todo",
         "url": "./demo/app002/",
         "tags_math": [
             "sets",
@@ -83,7 +84,8 @@
     "005": {
         "title": "Forest firest",
         "author": "DP",
-        "created": "22-05-28",
+        "last_update": "22-06-30",
+        "type": "todo",
         "tags_math": [
             "sets",
             "intersection",
@@ -105,7 +107,8 @@
     "006": {
         "title": "Demand curve",
         "author": "DP",
-        "created": "22-05-28",
+        "last_update": "22-06-30",
+        "type": "todo",
         "tags_math": [
             "quadratic function",
             "Inequality"

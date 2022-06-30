@@ -1,19 +1,7 @@
 import os
-import json
 
 from flask import Flask
 from .gallery.probability import prob_pee_sea
-
-# from dash import Dash
-# from werkzeug.wsgi import DispatcherMiddleware
-# from werkzeug.serving import run_simple
-# import dash_html_components as html
-
-
-# dash_app1 = Dash(__name__, server = app, url_base_pathname='/dashboard/')
-# dash_app2 = Dash(__name__, server = server, url_base_pathname='/reports/')
-# dash_app1.layout = html.Div([html.H1('Hi there, I am Dash1')])
-# dash_app2.layout = html.Div([html.H1('Hi there, I am Dash2')])
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -36,7 +24,6 @@ def create_app(test_config=None):
         pass
 
     # # root
-    # @app.route('/home')
     from . import routes
     app.register_blueprint(routes.bp_home)
     app.add_url_rule('/', endpoint='home')
@@ -44,12 +31,17 @@ def create_app(test_config=None):
     app.register_blueprint(routes.bp_contact)
     app.add_url_rule('/contact', endpoint='contact')
 
+    app.register_blueprint(routes.bp_todo)
+    app.add_url_rule('/not-implemented', endpoint='not-implemented')
+
+    # gallery
     from . import gallery
     app.register_blueprint(gallery.bp_gal)
 
     app.register_blueprint(gallery.bp_demo)
-    app = prob_pee_sea(app)
 
+    # dash plotly app
+    app = prob_pee_sea(app)
 
     return app
 

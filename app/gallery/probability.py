@@ -21,15 +21,11 @@ def prob_pee_sea(server):
     """Create a Plotly Dash dashboard."""
     dash_app = Dash(
         server=server,
-        requests_pathname_prefix='/demo/app002/',
         routes_pathname_prefix='/demo/app002/',
         external_stylesheets=[
             '/static/style.css'
         ]
     )
-    
-    
-    # x,y = generate_pee_binom(vol_pee, vol_sea, guess)
 
     dash_app.layout = html.Div([
         html.P([
@@ -41,7 +37,10 @@ def prob_pee_sea(server):
                 id="pee-vol",
                 placeholder='Enter a value...',
                 type='number',
-                value=1
+                min = 0.01,
+                max = 10,
+                value = 0.1,
+                step = 0.01
                 )
             ], className='input-field'),
 
@@ -54,7 +53,6 @@ def prob_pee_sea(server):
                           'Arctic ocean', 'Southern ocean'],
                             'all the oceans',
                 id='ocean_dropdown',
-                # style={'width':'50%', 'text-indent':'25px'}
                     )
             ], className='input-field'),
         
@@ -68,7 +66,9 @@ def prob_pee_sea(server):
                 id="pee-guess",
                 placeholder='Enter a value...',
                 type='number',
-                value=1
+                value=10,
+                min = 10,
+                step = 10
                 )
             ], className='input-field'),
         
@@ -79,14 +79,6 @@ def prob_pee_sea(server):
 
         dcc.Graph(id='pee_dist')
         ],)
-        # id='dash-container',
-        
-    # @dash_app.callback(
-    #     Output('dd_volume_container', 'children'),
-    #     Input('ocean_dropdown', 'value')
-    # )
-    # def update_output(value):
-    #     return f'The volume of water in {value} is {dc_water_volumes[value]} km3'
 
     @dash_app.callback(
         Output('pee_dist', 'figure'),
@@ -95,25 +87,15 @@ def prob_pee_sea(server):
         Input('pee-guess', 'value')
     )
     def update_graph(ocean, vol_pee, guess):
-        km3_to_liters = 10000**3
-        moles_per_liter = 1000/18.02
-        vol_sea = dc_water_volumes[ocean]
-        n = vol_pee * moles_per_liter * const.Avogadro # number of pee mol
-        p = n/(vol_sea * km3_to_liters * moles_per_liter * const.Avogadro) # probability of picking a pee molecule
-        # generate reasonable x axis
-        mean = int(n*p)
-        x=list(range(min(guess-50, mean-200),
-                max(guess+50, mean+200),
-                1))
-        # label
+        x, n, p = generate_pee_binom(vol_pee, dc_water_volumes[ocean], guess)
+        y = stats.binom.pmf(x, n*1e-20, p*1e20)
         prob = 1-stats.binom.cdf(guess, n*1e-20, p*1e20)
+        # labels
         fig = go.Figure(
-            # data=[go.Scatter(x=[0],y=[0])],
             layout=go.Layout(
-                title=go.layout.Title(text="A Figure Specified By A Graph Object"),
                 plot_bgcolor='rgba(0,0,0,0)',
-                # go.layout.xaxis.gridcolor('LightPink')
-                
+                xaxis_title='Number of pee molecules',
+                yaxis_title='Probability'
                 )
             )
         fig.update_xaxes(showgrid=True, zeroline=False, gridcolor='LightGrey')
@@ -121,18 +103,20 @@ def prob_pee_sea(server):
         fig.add_trace(
             go.Scatter(
                 x=x,
-                y=stats.binom.pmf(x, n*1e-20, p*1e20),
+                y=y,
                 name='binomial probability'
                 )
             )
         fig.add_trace(
             go.Scatter(
-                x=x[x.index(guess):],
-                y=stats.binom.pmf(x[x.index(guess):], n*1e-20, p*1e20),
-                fill='tozeroy',
-                text=str(round(prob,3)),
-                name='your prob: '+str(round(prob,3)),
-                textfont=dict(
+                x = x[x.index(guess):],
+                y = stats.binom.pmf(x[x.index(guess):],
+                                    n*1e-20,
+                                    p*1e20),
+                fill = 'tozeroy',
+                text = str(round(prob, 3)),
+                name = 'your prob: ' + str(round(prob, 3)),
+                textfont = dict(
                     family="sans serif",
                     size=18,
                     color="crimson"
@@ -152,11 +136,15 @@ def generate_pee_binom(vol_pee, vol_sea, guess):
     n = vol_pee * moles_per_liter * const.Avogadro # number of pee mol
     p = n/(vol_sea * km3_to_liters * moles_per_liter * const.Avogadro) # probability of picking a pee molecule
     # generate reasonable x axis
-    mean = n*p
-    x=range(min(guess-50, mean-150),
-            max(guess+50, mean+150),
-            1)
-    return (x, stats.binom.pmf(x, n*1e-20, p*1e20))
+    mean = int(n*p)
+    x = list(range(
+                max(
+                    min(guess-50, mean-150),
+                    0),
+                max(guess+50, mean+150),
+                1)
+                )
+    return (x, n, p)
 
 
 
