@@ -8,7 +8,7 @@ from plotly.subplots import make_subplots
 
 def fft_intro():
     line = create_square_f()
-    return create_plot(line,20)
+    return create_plot(line, 20)
 
 
 def create_plot(func, max_harmonics):
@@ -17,55 +17,54 @@ def create_plot(func, max_harmonics):
 
     fig.add_trace(
         go.Scatter(
-            x=func[0], 
+            x=func[0],
             y=func[1],
             name='square function',
-            line={'color':'red'},
+            line={'color': 'red'},
             visible=True,
             showlegend=True
             ), row=1, col=1)
 
-    for step in range(1,max_harmonics):
+    for step in range(1, max_harmonics):
         fig.add_trace(
             go.Scatter(
                 visible=False,
                 x=func[0],
                 y=ft_series_square(func[0], 1, step+1),
                 name='FT sine series',
-                line={'color':'blue'},
+                line={'color': 'blue'},
                 ), row=1, col=1)
-        
-        x,y = do_fft(func[0], ft_series_square(func[0], 1, step+1))
+
+        x, y = do_fft(func[0], ft_series_square(func[0], 1, step+1))
         fig.add_trace(
-        go.Scatter(
-            visible=False,
-            x=x,
-            y=y,
-            name='FT amplitudes',
-            line={'color':'green'},
-            ), row=1, col=2)
-        
-    
+            go.Scatter(
+                visible=False,
+                x=x,
+                y=y,
+                name='FT amplitudes',
+                line={'color': 'green'},
+                ), row=1, col=2)
+
     fig.data[0].visible = True
     fig.data[1].visible = True
     fig.data[2].visible = True
-    fig.update_layout(yaxis_range=[-1.5,1.5])
+    fig.update_layout(yaxis_range=[-1.5, 1.5])
     fig.update_xaxes(range=[0, 40], row=1, col=2)
 
-    ## slider
+    # slider
     steps = []
-    counter=1
-    for i in range(1,len(fig.data),2):
+    counter = 1
+    for i in range(1, len(fig.data), 2):
         step = dict(
             method="update",
-            args=[{"visible": [False] * len(fig.data)},
-                    ],  # layout attribute
+            args=[{"visible": [False] * len(fig.data)}],  # layout attribute
             label=str(counter),
                     )
         step["args"][0]["visible"][0] = True
-        step["args"][0]["visible"][i:i+2] = [True,True]  # Toggle i'th trace to "visible"
+        # Toggle i'th trace to "visible"
         steps.append(step)
-        counter+=1
+        step["args"][0]["visible"][i:i+2] = [True, True]
+        counter += 1
 
     sliders = [dict(
         active=0,
@@ -75,7 +74,8 @@ def create_plot(func, max_harmonics):
     )]
 
     fig.update_layout(
-        sliders=sliders)
+        sliders=sliders
+        )
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
 
@@ -85,9 +85,9 @@ def ft_series_square(x_axis, freq, n_harmonics):
     f_values = np.zeros(len(x_axis))
     # k is the k from the formula above
     for k in range(1, n_harmonics):
-        # for higher and higher frequencies, adding the sin term to my existing values
-        f_values = f_values + np.sin(2*np.pi*(2*k-1)*freq*x_axis)/(2*k-1) 
-    return f_values*4/np.pi  # multiplying only once the whole thing, insted of n_harmonics-times (in each iteration) 
+        # for higher frequencies, adding the sin term to my existing values
+        f_values = f_values + np.sin(2*np.pi*(2*k-1)*freq*x_axis)/(2*k-1)
+    return f_values * 4 / np.pi  # multiplying only once the whole thing
 
 
 def do_fft(x, f):
@@ -100,5 +100,4 @@ def do_fft(x, f):
 def create_square_f():
     t = np.linspace(0, 2, 500, endpoint=False)
     f = signal.square(2 * np.pi * t)
-    return (t,f)
-
+    return (t, f)

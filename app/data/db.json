@@ -45,7 +45,8 @@
         "title": "Compare Pizza sizes",
         "author": "DP",
         "last_update": "22-06-30",
-        "type": "todo",
+        "type": "plotly",
+        "url": "None",
         "tags_math": [
             "quadratic function",
             "area calculation"

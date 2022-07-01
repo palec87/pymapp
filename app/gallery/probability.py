@@ -1,16 +1,14 @@
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
-from matplotlib.pyplot import xlabel, ylabel
-import plotly.express as px
 import plotly.graph_objects as go
 
 import scipy.stats as stats
 import scipy.constants as const
-import numpy as np
+
 
 dc_water_volumes = {
-    'all the oceans':1.335e9,
-    'Pacific ocean':0.66988e9,
+    'all the oceans': 1.335e9,
+    'Pacific ocean': 0.66988e9,
     'Atlantic ocean': 0.3104109e9,
     'Indian ocean': 0.264e9,
     'Southern ocean': 0.0718e9,
@@ -37,10 +35,10 @@ def prob_pee_sea(server):
                 id="pee-vol",
                 placeholder='Enter a value...',
                 type='number',
-                min = 0.01,
-                max = 10,
-                value = 0.1,
-                step = 0.01
+                min=0.01,
+                max=10,
+                value=0.1,
+                step=0.01
                 )
             ], className='input-field'),
 
@@ -49,13 +47,14 @@ def prob_pee_sea(server):
             ]),
 
         html.P([
-            dcc.Dropdown(['all the oceans', 'Pacific ocean', 'Atlantic ocean', 'Indian ocean',
+            dcc.Dropdown(['all the oceans', 'Pacific ocean',
+                          'Atlantic ocean', 'Indian ocean',
                           'Arctic ocean', 'Southern ocean'],
-                            'all the oceans',
-                id='ocean_dropdown',
-                    )
+                         'all the oceans',
+                         id='ocean_dropdown',
+                         )
             ], className='input-field'),
-        
+
         html.P([
             'The question is, when you draw the same volume of water back into a glass, \
             what is the chance to have more than'
@@ -67,11 +66,11 @@ def prob_pee_sea(server):
                 placeholder='Enter a value...',
                 type='number',
                 value=10,
-                min = 10,
-                step = 10
+                min=10,
+                step=10
                 )
             ], className='input-field'),
-        
+
         html.P([
             'molecules of your own pee in the glass of water?'
             ]),
@@ -109,14 +108,14 @@ def prob_pee_sea(server):
             )
         fig.add_trace(
             go.Scatter(
-                x = x[x.index(guess):],
-                y = stats.binom.pmf(x[x.index(guess):],
-                                    n*1e-20,
-                                    p*1e20),
-                fill = 'tozeroy',
-                text = str(round(prob, 3)),
-                name = 'your prob: ' + str(round(prob, 3)),
-                textfont = dict(
+                x=x[x.index(guess):],
+                y=stats.binom.pmf(x[x.index(guess):],
+                                  n*1e-20,
+                                  p*1e20),
+                fill='tozeroy',
+                text=str(round(prob, 3)),
+                name='your prob: ' + str(round(prob, 3)),
+                textfont=dict(
                     family="sans serif",
                     size=18,
                     color="crimson"
@@ -128,13 +127,15 @@ def prob_pee_sea(server):
     return dash_app.server
 
 
-### helper functions ###
+# helper functions ###
 def generate_pee_binom(vol_pee, vol_sea, guess):
     '''vol_pee in litres'''
     km3_to_liters = 10000**3
     moles_per_liter = 1000/18.02
-    n = vol_pee * moles_per_liter * const.Avogadro # number of pee mol
-    p = n/(vol_sea * km3_to_liters * moles_per_liter * const.Avogadro) # probability of picking a pee molecule
+    n = vol_pee * moles_per_liter * const.Avogadro  # number of pee mol
+    p = n/(vol_sea * km3_to_liters
+           * moles_per_liter
+           * const.Avogadro)  # probability of picking a pee molecule
     # generate reasonable x axis
     mean = int(n*p)
     x = list(range(
@@ -143,10 +144,5 @@ def generate_pee_binom(vol_pee, vol_sea, guess):
                     0),
                 max(guess+50, mean+150),
                 1)
-                )
+             )
     return (x, n, p)
-
-
-
-
-
