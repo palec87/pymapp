@@ -50,23 +50,23 @@ def quad_pizza(server):
             children=['Figure notes'],
             type="button", className="collapsible"),
 
-            # collapsible content
-            html.Div(id='hide-cont-1', children=[
-                html.Ul([
-                    html.Li(['Left graphic shows relative scales of your pizzas\
-                        based on your slider values if diameter of the smaller\
-                        one is quite standard 20cm.']),
-                    html.Li([
-                        'Right graph shows areas of ',
-                        html.Span(['two small pizzas'],
-                                  style={'color': 'red'}),
-                        ' and ',
-                        html.Span(['one large pizza'],
-                                  style={'color': 'blue'}),
-                        ', together with the calculated difference in areas '
-                    ]),
-                ], style={'list-style-type': 'circle'}),
-            ], className='hide-cont-1'),
+        # collapsible content
+        html.Div(id='hide-cont-1', children=[
+            html.Ul([
+                html.Li(['Left graphic shows relative scales of your pizzas\
+                    based on your slider values if diameter of the smaller\
+                    one is quite standard 20cm.']),
+                html.Li([
+                    'Right graph shows areas of ',
+                    html.Span(['two small pizzas'],
+                              style={'color': 'red'}),
+                    ' and ',
+                    html.Span(['one large pizza'],
+                              style={'color': 'blue'}),
+                    ', together with the calculated difference in areas '
+                ]),
+            ], style={'list-style-type': 'circle'}),
+        ], className='hide-cont-1'),
 
         # TODO: because latex does not work here.
         # html.Button(
