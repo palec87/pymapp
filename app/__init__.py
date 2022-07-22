@@ -2,6 +2,8 @@ import os
 
 from flask import Flask
 from .gallery.probability import prob_pee_sea
+from .gallery.quadratic import quad_pizza
+
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -38,11 +40,8 @@ def create_app(test_config=None):
 
     app.register_blueprint(gallery.bp_demo)
 
-    # dash plotly app
+    # dash plotly apps
     app = prob_pee_sea(app)
+    app = quad_pizza(app)
 
     return app
-
-
-
-

@@ -5,12 +5,14 @@ from collections import defaultdict as ddc
 from flask import current_app
 from werkzeug.exceptions import abort
 
+
 def read_json(path):
     '''instead of sqlite I store data simply in json file'''
     with open(path) as f:
         return json.load(f)
 
-def get_demo(id:str):
+
+def get_demo(id: str):
     '''read dict related to one specific demo'''
     if id == 'random':
         content = read_json(current_app.root_path
@@ -21,7 +23,7 @@ def get_demo(id:str):
     else:
         demo = read_json(current_app.root_path
                          + '/data/db.json')[id]
-    
+
     if demo is None:
         abort(404, 'Demo does not exist.')
     return demo
@@ -34,12 +36,13 @@ def get_tags():
     TODO: Once I have many, I have to pick some
      subset of those
     '''
-    dm, dp, dt = ddc(lambda:0), ddc(lambda:0), ddc(lambda:0)  # tags for math, python and topic separated
+    # tags for math, python and topic separated
+    dm, dp, dt = ddc(lambda: 0), ddc(lambda: 0), ddc(lambda: 0)
     all = set()
     content = read_json(current_app.root_path
                         + '/data/db.json')
 
-    # counting tag occurances for math/python/main topics 
+    # counting tag occurances for math/python/main topics
     for _, value in content.items():
         for tag in value['tags_math']:
             dm[tag] += 1
@@ -57,7 +60,8 @@ def get_tags():
     lt = [key + ': ' + str(value) + 'x' for key, value in dt.items()]
     return (lm, lp, lt, all)
 
-def get_demos_by_tag(tag:str):
+
+def get_demos_by_tag(tag: str):
     '''search all demos containng particular tag
     '''
     demos_tagged = {}

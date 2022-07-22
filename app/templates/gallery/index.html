@@ -1,27 +1,23 @@
 {% extends 'base.html' %}
 
-{% block header %}
-  <h1>{% block title %} Demos {% endblock %}</h1>
-{% endblock %}
-
 {% block content %}
-  {% for name,item in demos.items() %}
-    <article class="post">
-      <header>
-        <div class="demo">
+  <section class="content">
+    {% for name,item in demos.items() %}
+      <article class="gallery-area--demo">
+        <div class="gallery-area--demo--header">
           <img src= "{{ url_for('static', filename=item['toc_figure']) }}" alt="{{ item['toc_figure'] }}" />
-          <h1>
+          <h1 class="demo--title">
             <a class="action" href="{{ url_for('demo.demo', id=name) }}"> {{ item['title'] }}</a>
           </h1>
           <div class="about">by {{ item['author'] }}, last update: {{ item['last_update'] }}</div>
         </div>
-      </header>
-      <p class="body">Tags: {{ ', '.join(item['tags_math']+
-                                         item['tags_python']+
-                                         item['tags_topic']) }}</p>
-    </article>
-    {% if not loop.last %}
-      <hr>
-    {% endif %}
-  {% endfor %}
+        <p class="demo-body">Tags: {{ ', '.join(item['tags_math']+
+                                          item['tags_python']+
+                                          item['tags_topic']) }}</p>
+      </article>
+      {% if not loop.last %}
+        <hr>
+      {% endif %}
+    {% endfor %}
+  </section>
 {% endblock %}

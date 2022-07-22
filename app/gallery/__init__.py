@@ -51,6 +51,6 @@ def demo(id='random'):
             plot=plot)
     else:
         return render_template(
-            'todo.html',
+            'gallery/todo.html',
             links=db.get_tags(),
             demo=demo)

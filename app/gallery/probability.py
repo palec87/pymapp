@@ -6,7 +6,7 @@ import scipy.stats as stats
 import scipy.constants as const
 
 
-dc_water_volumes = {
+water_volumes = {
     'all the oceans': 1.335e9,
     'Pacific ocean': 0.66988e9,
     'Atlantic ocean': 0.3104109e9,
@@ -21,63 +21,66 @@ def prob_pee_sea(server):
         server=server,
         routes_pathname_prefix='/demo/app002/',
         external_stylesheets=[
-            '/static/style.css'
+            '/static/style-dash.css'
         ]
     )
 
     dash_app.layout = html.Div([
-        html.P([
-            'Imagine you have peed (in litres)'
-        ]),
-
-        html.P([
-            dcc.Input(
-                id="pee-vol",
-                placeholder='Enter a value...',
-                type='number',
-                min=0.01,
-                max=10,
-                value=0.1,
-                step=0.01
-                )
-            ], className='input-field'),
-
-        html.P([
-            'After that, you mix your pee perfectly across'
+        html.Div([
+            html.P([
+                'Imagine you have'
             ]),
 
-        html.P([
-            dcc.Dropdown(['all the oceans', 'Pacific ocean',
-                          'Atlantic ocean', 'Indian ocean',
-                          'Arctic ocean', 'Southern ocean'],
-                         'all the oceans',
-                         id='ocean_dropdown',
-                         )
-            ], className='input-field'),
+            html.P([
+                dcc.Input(
+                    id="pee-vol",
+                    placeholder='Enter a value...',
+                    type='number',
+                    min=0.01,
+                    max=10,
+                    value=0.1,
+                    step=0.01
+                    )
+                ], className='input-field'),
 
-        html.P([
-            'The question is, when you draw the same volume of water back into a glass, \
-            what is the chance to have more than'
-            ]),
+            html.P([
+                ' litres of your own pee. After that, you\
+                 perfectly mix it across'
+                ]),
 
-        html.P([
-            dcc.Input(
-                id="pee-guess",
-                placeholder='Enter a value...',
-                type='number',
-                value=10,
-                min=10,
-                step=10
-                )
-            ], className='input-field'),
+            html.P([
+                dcc.Dropdown(['all the oceans', 'Pacific ocean',
+                              'Atlantic ocean', 'Indian ocean',
+                              'Arctic ocean', 'Southern ocean'],
+                             'all the oceans',
+                             id='ocean_dropdown',
+                             )
+                ], className='input-field'),
 
-        html.P([
-            'molecules of your own pee in the glass of water?'
-            ]),
+            html.P([
+                'The question is, when you draw the same volume of water back into a glass, \
+                what is the chance to have more than'
+                ]),
 
+            html.P([
+                dcc.Input(
+                    id="pee-guess",
+                    placeholder='Enter a value...',
+                    type='number',
+                    value=10,
+                    min=10,
+                    step=10
+                    )
+                ], className='input-field'),
 
-        dcc.Graph(id='pee_dist')
-        ],)
+            html.P([
+                'molecules of your own pee in the glass of water?'
+                ]),
+            ], className='left-panel'),
+        html.Div([
+            dcc.Graph(id='pee_dist')
+            ], className='right-panel'),
+        ], className='grid-container dash-area--main')
 
     @dash_app.callback(
         Output('pee_dist', 'figure'),
@@ -86,7 +89,7 @@ def prob_pee_sea(server):
         Input('pee-guess', 'value')
     )
     def update_graph(ocean, vol_pee, guess):
-        x, n, p = generate_pee_binom(vol_pee, dc_water_volumes[ocean], guess)
+        x, n, p = generate_pee_binom(vol_pee, water_volumes[ocean], guess)
         y = stats.binom.pmf(x, n*1e-20, p*1e20)
         prob = 1-stats.binom.cdf(guess, n*1e-20, p*1e20)
         # labels
@@ -94,7 +97,13 @@ def prob_pee_sea(server):
             layout=go.Layout(
                 plot_bgcolor='rgba(0,0,0,0)',
                 xaxis_title='Number of pee molecules',
-                yaxis_title='Probability'
+                yaxis_title='Probability',
+                legend=dict(
+                    yanchor="top",
+                    y=0.99,
+                    xanchor="left",
+                    x=0.01
+                    )
                 )
             )
         fig.update_xaxes(showgrid=True, zeroline=False, gridcolor='LightGrey')

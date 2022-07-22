@@ -15,14 +15,16 @@ def home():
         'home.html',
         links=db.get_tags())
 
+
 @bp_contact.route('/contact')
 def contact():
     return render_template(
         'contact.html',
         links=db.get_tags())
 
+
 @bp_todo.route('/not-implemented')
 def todo():
     return render_template(
         'todo.html',
-        links=db.get_tags())               
+        links=db.get_tags())

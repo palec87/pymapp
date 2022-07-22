@@ -15,7 +15,11 @@
         "tags_topic": [
             "introduction"],
         "pipe_name": "fft_intro",
-        "toc_figure": "fig/fft_intro.png"
+        "toc_figure": "fig/fft_intro.png",
+        "url_task_nb": "todo",
+        "url_sol_nb":"todo",
+        "url_task_video":"todo",
+        "url_sol_video":"todo"
     },
 
     "002": {
@@ -38,15 +42,19 @@
             "isotopes"    
         ],
         "pipe_name": "prob_pee_sea",
-        "toc_figure": "fig/pee_sea.png"
+        "toc_figure": "fig/pee_sea.png",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F05_probability%2Fpee_sea_task.ipynb",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F05_probability%2Fpee_sea_solution.ipynb",
+        "url_task_video":"https://youtu.be/4TLpBQrfd70",
+        "url_sol_video":"todo"
     },
 
     "003": {
         "title": "Compare Pizza sizes",
         "author": "DP",
         "last_update": "22-06-30",
-        "type": "plotly",
-        "url": "None",
+        "type": "dash",
+        "url": "./demo/app003/",
         "tags_math": [
             "quadratic function",
             "area calculation"
@@ -59,7 +67,11 @@
             "area comparison"
         ],
         "pipe_name": "quad_pizza",
-        "toc_figure": "fig/pizza.png"
+        "toc_figure": "fig/pizza.png",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_pizza_task.ipynb",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_pizza_solution.ipynb",
+        "url_task_video":"https://www.youtube.com/watch?v=viAcVVRsoU0&list=PLC92HdCoHEX24nHwKYhyNgS3Egh3bnced&index=2",
+        "url_sol_video":"https://www.youtube.com/watch?v=zvxtZsYAa9s&list=PLC92HdCoHEX24nHwKYhyNgS3Egh3bnced&index=3"
     },
 
     "004": {
@@ -80,7 +92,11 @@
         "tags_topic": [
             "introduction"],
         "pipe_name": "sets_intro",
-        "toc_figure": "fig/sets_intro.png"
+        "toc_figure": "fig/sets_intro.png",
+        "url_task_nb": "todo",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?labpath=%2Fen%2F03_sets%2Fsets_intro.ipynb",
+        "url_task_video":"todo",
+        "url_sol_video":"https://www.youtube.com/watch?v=R0bMw1VEDzQ"
     },
     "005": {
         "title": "Forest firest",
@@ -103,7 +119,11 @@
             "Forests"
         ],
         "pipe_name": "sets_forest_fires",
-        "toc_figure": "fig/sets_forest_fires.png"
+        "toc_figure": "fig/sets_forest_fires.png",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F03_sets%2Fforest_fires_task.ipynb",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F03_sets%2Fforest_fires_solution.ipynb",
+        "url_task_video":"https://youtu.be/lL8f9M51ZNI",
+        "url_sol_video":"https://youtu.be/X5RLgsM6mlU"
     },
     "006": {
         "title": "Demand curve",
@@ -123,7 +143,11 @@
             "Profit"
         ],
         "pipe_name": "quad_demand",
-        "toc_figure": "fig/quad_demand.png"
+        "toc_figure": "fig/quad_demand.png",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_task.ipynb",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_solution.ipynb",
+        "url_task_video":"https://youtu.be/vBzsQDwDu80",
+        "url_sol_video":"https://youtu.be/dNCAx7WS8-U"
     }
 
 }

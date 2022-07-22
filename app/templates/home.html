@@ -1,58 +1,105 @@
 {% extends 'base.html' %}
 
-{% block header %}
-  <h1>{% block title %} Welcome to Pymarad{% endblock %}</h1>
+{% block logo %}
+<div class="content-area">
+  <section class="visual-area">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <div class="title--logo">
+      <h1>
+        Pymarad
+      </h1>
+    </div>
+    <div class="typewriter" id="myTypewriter">
+      <h1>
+      </h1>
+    </div>
+  </section>
+</div>
+<script>
+  var messages=["Python Programming","High school math","Real-world problems",
+                'Interactive projects'];
+  var lens = ['580px', '480px', '570px', '530px']
+  var idx=0;
+  document.getElementById("myTypewriter").addEventListener("webkitAnimationEnd", changeTxt);
+  document.getElementById("myTypewriter").addEventListener("animationend", changeTxt);
+
+  function changeTxt(e){
+    _h1 = this.getElementsByTagName("h1")[0];
+    _h1.style.webkitAnimation = 'none'; // set element animation to none
+    setTimeout(function() { // you surely want a delay before the next message appears
+      _h1.innerHTML=messages[idx];
+      var speed =0.15*messages[idx].length; // adjust the speed (3.5 is the original speed, 20 is the original string length
+      _h1.style.maxWidth = lens[idx];
+      _h1.style.webkitAnimation = 'typing '+speed+'s steps(30, end), blink-caret .75s step-end infinite'; //  switch to the original set of animation      
+      (idx===messages.length-1)?idx=0:idx++; // if you have displayed the last message from the array, go back to the first one, else go to next message
+      }, 0);
+  }
+</script>
+{% endblock %}
+
+{% block sidebar %}
+  <div class="sidebar-home">
+    <h4>
+      {% block tags3 %} Main Topics {% endblock %}
+    </h4>
+    {% for link in links[2] %}
+      <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">
+        {{ link }}
+      </a>
+    {% endfor %}
+
+    <h4>
+      {% block tags1 %} Math Topics {% endblock %}
+    </h4>
+    {% for link in links[0] %}
+      <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">
+        {{ link }}
+      </a>
+    {% endfor %}
+
+    <h4>
+    {% block tags2 %} Python Topics {% endblock %}
+    </h4>
+    {% for link in links[1] %}
+      <a href="{{ url_for('gallery.index', include_tags=link.split(':')[0]) }}">
+        {{ link }}
+      </a>
+    {% endfor %}
+  </div>
 {% endblock %}
 
 {% block content %}
-  <p>
-    Pymarad attemps to combine high school math, real-world topics and programming in Python.
-  </p>
-  <p>
-    You can try it out yourself in various ways.
-  </p>
-  <p> Check out the 
-    <a
-    href="{{ url_for('gallery.index') }}"
-    style="display:inline-block">
-      gallery
-    </a>
-    with the project demos, which tease you with
-    some results of the projects themselves.
-  </p>
-  <p>Each project is also compiled into task and solution work sheets, which can be
-    accessed via links in each of the demos.
-  </p>
-  <p>
-    Work sheets open on the server, are interactive and well commented
-    to guide through some python coding experience.
-  </p>
-  <p>
-    Btw. There is also a
-    <a 
-      href="https://www.youtube.com/channel/UC9FRDaR5N5AzggJGQUaiCTQ"
-      target="_blank"
-      style="display:inline-block">
-        YouTube channel
-    </a>  
-    introducing every project task.
-  </p>
-  <div>
-    <a class="action" href="{{ url_for('gallery.index') }}">Go to gallery</a>
-  </div>
-  <div>
-    <a class="action" 
-      href="https://github.com/palec87/pymarad"
-      target="_blank">
-        Github for Pymarad
-    </a>
-  </div>
-  
-  <div>
-    <a class="action" 
-      href="https://github.com/palec87/pymapp"
-      target="_blank">
-        Github for this app
-    </a>
-  </div>
+  <section class="content-home">
+    <ul class="text">
+      <li>
+        Pymarad combines high school math, real-world topics and
+        programming in Python.
+      </li>
+      <li>
+        Check out the 
+        <a class="text"
+          href="{{ url_for('gallery.index') }}">
+          gallery
+        </a>
+        with the project demos, which tease you with
+        some results of the projects themselves.
+      </li>
+      <li>
+        Each project is also compiled into task and solution work sheets (links in demos).
+      </li>
+      <li>
+        Work sheets open on the server, are interactive and well commented
+        to guide you through some python coding experience.
+      </li>
+      <li>
+        Btw. There is also a
+        <a class="text"
+          href="https://www.youtube.com/channel/UC9FRDaR5N5AzggJGQUaiCTQ"
+          target="_blank">
+            YouTube channel
+        </a>  
+        introducing each project task.
+      </li>
+    </ul>
+  </section>
 {% endblock %}
