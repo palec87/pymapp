@@ -1,16 +1,18 @@
 # Pymarad webapp
 
-Pymapp contains demos for Pymarad tutorials, which want to tease you to try to code one of the Pymarad projects on your own.
+Check it our ![here](https://pymarad-app.herokuapp.com/).
 
-## Each demo is interactive and contains links to:
-1. *Task/Solution* Jupyter notebooks executable on:
-    * ![Binder](https://mybinder.org/badge_logo.svg)
-    * ![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)
-    * ![Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)
+Pymapp contains demos for Pymarad tutorials, which tease you to try code one of the Pymarad projects on your own.
 
-2. YouTube intro video to the *Task*.
+## Demos are interactive and contain links to:
+1. *Task/Solution* Jupyter notebooks executable on Binder:
+2. *YouTube* intro videos.
+
+## Pymarad collection:
+![repo](https://github.com/palec87/pymarad)
 
 ## Used Tech:
  * Flask
  * Dash
  * Plotly
+ * Heroku
