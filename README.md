@@ -1,4 +1,4 @@
-# Pymarad webapp (Currently hosted in limited edition on ![pythonanywhere](https://www.pythonanywhere.com/).)
+# Pymarad webapp
 
 Check it our ![here](http://palec.eu.pythonanywhere.com).
 
