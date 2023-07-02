@@ -1,6 +1,6 @@
-# Pymarad webapp (Unfortunately free Heroku is over, so the app is down at the moment, sorry about that.)
+# Pymarad webapp (Currently hosted in limited edition on ![pythonanywhere](https://www.pythonanywhere.com/).)
 
-Check it our ![here](https://pymarad-app.herokuapp.com/).
+Check it our ![here](http://palec.eu.pythonanywhere.com).
 
 Pymapp contains demos for Pymarad tutorials, which tease you to try code one of the Pymarad projects on your own.
 
