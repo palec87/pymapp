@@ -43,8 +43,8 @@
         ],
         "pipe_name": "prob_pee_sea",
         "toc_figure": "fig/pee_sea.png",
-        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F05_probability%2Fpee_sea_task.ipynb",
-        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F05_probability%2Fpee_sea_solution.ipynb",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F05_probability%2Fwee_sea_task.ipynb",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F05_probability%2Fwee_sea_solution.ipynb",
         "url_task_video":"https://youtu.be/4TLpBQrfd70",
         "url_sol_video":"todo"
     },
