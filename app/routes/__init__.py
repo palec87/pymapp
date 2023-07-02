@@ -2,7 +2,8 @@ from flask import (
     Blueprint, render_template
 )
 
-import app.db as db
+# import app.db as db
+import db
 
 bp_home = Blueprint('home', __name__, url_prefix='/')
 bp_contact = Blueprint('contact', __name__, url_prefix='/')

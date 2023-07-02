@@ -1,10 +1,10 @@
 import os
 
 from flask import Flask
-from .gallery.probability import prob_pee_sea
-from .gallery.quadratic import quad_pizza
-from . import routes
-from . import gallery
+from gallery.probability import prob_pee_sea
+from gallery.quadratic import quad_pizza
+import routes
+import gallery
 
 
 # def create_app(test_config=None):

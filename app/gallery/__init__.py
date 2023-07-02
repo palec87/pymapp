@@ -2,7 +2,8 @@ from flask import (
     Blueprint, render_template, current_app
 )
 
-import app.db as db
+# import app.db as db
+import db
 from .fft import fft_intro
 from .sets import sets_intro
 from .probability import prob_pee_sea
