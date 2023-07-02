@@ -1,6 +1,5 @@
 # Pymarad webapp
-
-Check it out ![here](https://palec.eu.pythonanywhere.com).
+Check it out (https://palec.eu.pythonanywhere.com)
 
 Pymapp contains demos for Pymarad tutorials, which tease you to try code one of the Pymarad projects on your own.
 
