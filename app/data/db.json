@@ -8,14 +8,14 @@
         "tags_math": [
             "oscillations",
             "goniometry",
-            "Fourier series"
+            "Fourier analysis"
             ],
         "tags_python": [
             "signal processing"],
         "tags_topic": [
             "introduction"],
         "pipe_name": "fft_intro",
-        "toc_figure": "fig/fft_intro.png",
+        "toc_figure": "fig/fft_series02.png",
         "url_task_nb": "todo",
         "url_sol_nb":"todo",
         "url_task_video":"todo",
@@ -148,6 +148,27 @@
         "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_solution.ipynb",
         "url_task_video":"https://youtu.be/vBzsQDwDu80",
         "url_sol_video":"https://youtu.be/dNCAx7WS8-U"
+    },
+    "007": {
+        "title": "Fourier Image Compression",
+        "author": "DP",
+        "last_update": "23-07-09",
+        "type": "dash",
+        "url": "./demo/app007/",
+        "tags_math": [
+            "Fourier analysis"
+            ],
+        "tags_python": [
+            "signal processing"],
+        "tags_topic": [
+            "introduction",
+            "image compression"],
+        "pipe_name": "fft_compression",
+        "toc_figure": "fig/fft_compression.png",
+        "url_task_nb": "todo",
+        "url_sol_nb":"todo",
+        "url_task_video":"todo",
+        "url_sol_video":"todo"
     }
 
 }

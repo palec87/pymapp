@@ -10,6 +10,15 @@ ol {
     font-size: 1.4rem;
 }
 
+a.text {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  /* color:#923f31; */
+  /* color: #009DAE; */
+  color:#62a324;
+}
+
 p {
     font-size:1.4rem;
 }
