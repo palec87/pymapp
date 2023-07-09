@@ -17,7 +17,7 @@
         "pipe_name": "fft_intro",
         "toc_figure": "fig/fft_series02.png",
         "url_task_nb": "todo",
-        "url_sol_nb":"todo",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Ffft_intro.ipynb",
         "url_task_video":"todo",
         "url_sol_video":"todo"
     },
@@ -165,8 +165,8 @@
             "image compression"],
         "pipe_name": "fft_compression",
         "toc_figure": "fig/fft_compression.png",
-        "url_task_nb": "todo",
-        "url_sol_nb":"todo",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_task.ipynb",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_solution.ipynb",
         "url_task_video":"todo",
         "url_sol_video":"todo"
     }
