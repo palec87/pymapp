@@ -2,12 +2,13 @@ from flask import (
     Blueprint, render_template, current_app
 )
 
-# import app.db as db
 import db
-from .fft import fft_intro
-from .sets import sets_intro
-from .probability import prob_pee_sea
-from .quadratic import quad_pizza
+from .fft import fft_intro              # noqa
+from .sets import sets_intro            # noqa
+from .probability import prob_pee_sea   # noqa
+from .quadratic import quad_pizza       # noqa
+from .fft_compression import compress_fourier   # noqa
+from .newton_disc import nd   # noqa
 
 
 bp_gal = Blueprint('gallery', __name__, url_prefix='/gallery')

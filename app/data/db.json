@@ -8,16 +8,16 @@
         "tags_math": [
             "oscillations",
             "goniometry",
-            "Fourier series"
+            "Fourier analysis"
             ],
         "tags_python": [
             "signal processing"],
         "tags_topic": [
             "introduction"],
         "pipe_name": "fft_intro",
-        "toc_figure": "fig/fft_intro.png",
+        "toc_figure": "fig/fft_series02.png",
         "url_task_nb": "todo",
-        "url_sol_nb":"todo",
+        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Ffft_intro.ipynb",
         "url_task_video":"todo",
         "url_sol_video":"todo"
     },
@@ -92,7 +92,7 @@
         "tags_topic": [
             "introduction"],
         "pipe_name": "sets_intro",
-        "toc_figure": "fig/sets_intro.png",
+        "toc_figure": "fig/sets_intro_pymapp.png",
         "url_task_nb": "todo",
         "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?labpath=%2Fen%2F03_sets%2Fsets_intro.ipynb",
         "url_task_video":"todo",
@@ -119,7 +119,7 @@
             "Forests"
         ],
         "pipe_name": "sets_forest_fires",
-        "toc_figure": "fig/sets_forest_fires.png",
+        "toc_figure": "fig/forest_fires_pymapp.png",
         "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F03_sets%2Fforest_fires_task.ipynb",
         "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F03_sets%2Fforest_fires_solution.ipynb",
         "url_task_video":"https://youtu.be/lL8f9M51ZNI",
@@ -143,11 +143,50 @@
             "Profit"
         ],
         "pipe_name": "quad_demand",
-        "toc_figure": "fig/quad_demand.png",
+        "toc_figure": "fig/demand_curve_pymapp.png",
         "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_task.ipynb",
         "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_solution.ipynb",
         "url_task_video":"https://youtu.be/vBzsQDwDu80",
         "url_sol_video":"https://youtu.be/dNCAx7WS8-U"
+    },
+    "007": {
+        "title": "Fourier Image Compression",
+        "author": "DP",
+        "last_update": "23-07-09",
+        "type": "dash",
+        "url": "./demo/app007/",
+        "tags_math": [
+            "Fourier analysis"
+            ],
+        "tags_python": [
+            "signal processing"],
+        "tags_topic": [
+            "introduction",
+            "image compression"],
+        "pipe_name": "fft_compression",
+        "toc_figure": "fig/fft_compression.png",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_task.ipynb",
+        "url_sol_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_solution.ipynb",
+        "url_task_video": "todo",
+        "url_sol_video": "todo"
+    },
+    "008": {
+        "title": "Newton disc",
+        "author": "DP",
+        "last_update": "23-09-23",
+        "type": "dash",
+        "url": "./demo/app008/",
+        "tags_math": [],
+        "tags_python": [],
+        "tags_topic": [
+            "optics",
+            "spectrum"],
+        "pipe_name": "newton_disc",
+        "toc_figure": "fig/newton_disc.png",
+        "url_task_nb": "todo",
+        "url_sol_nb": "todo",
+        "url_task_video": "todo",
+        "url_sol_video": "todo"
     }
 
 }
