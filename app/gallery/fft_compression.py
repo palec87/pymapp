@@ -35,7 +35,7 @@ def compress_fourier(server):
                        style={'font-weight': 'bold'}),
                 ],
         ),
-        html.Img(src='app/static/fig/fourier_greyscale.png',
+        html.Img(src='static/fig/fourier_greyscale.png',
                  alt='Portrait of Sir Joseph Fourier.',
                  style={
                     "width": "250px",
@@ -128,7 +128,7 @@ def compress_fourier(server):
     ], className='dash-area--main')
     print('loading...')
     # IMG_fft = np.load('app/static/fft_img_fourier.npy').view(complex)
-    img = Image.open('app/static/fig/fourier_greyscale.png').convert('L')
+    img = Image.open('static/fig/fourier_greyscale.png').convert('L')
     IMG_fft = np.fft.fftshift(np.fft.fft2(img))
     IMG_fft_to_plot = np.log(abs(IMG_fft))
 
