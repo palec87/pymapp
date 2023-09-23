@@ -47,9 +47,9 @@ def compress_fourier(server):
         html.P(children=[
             'The original size of this image is 1619 x 2048 pixels. \
             In the 8 bit greyscale representation as shown here (every \
-            pixel has intensity values between 0-255, and because \
-            255 = 2^8-1), the memory necessary to store this image is \
-            1619 * 2048 * 8 bits = 3.31 MB \
+            pixel has intensity values between 0-255, because \
+            255 = 2 ^ 8bits - 1), the memory necessary to store this image in bits is \
+            1619 * 2048 * 8 = 3.31 MB \
             in the worst case scenario if all pixels would be 255 \
             (all white). In reality, it takes about 1.97 MB on my machine.'],
             style={
@@ -58,12 +58,12 @@ def compress_fourier(server):
             }),
         html.P(children=[
             'Below on the left is the 2D Fourier transform of maestro \
-            Fourier, i.e. represented by sines and cosines. The white \
+            Fourier, i.e. represented by amplitudes of sines and cosines. The white \
             color represents high amplitude of particular frequency. \
             The center of the image corresponds to 0 frequency \
             (a constant) and usually dominates. \
             Further from the center will be higher frequencies, which contain \
-            more and more image details. Note that since the FT is \
+            finer image details. Note that since the FT is \
             symmetric, the 2D FT is symmetric too.\
             '
         ], style={
@@ -73,9 +73,10 @@ def compress_fourier(server):
         html.P(children=[
             'Use sliders to adjust how many pixels are used to \
              inverse Fourier transform to get compressed original \
-            image. The reconstructed image will have dimensions of your \
-            selected number of pixels (FT does not change dimensions). \
-             This type of filtering is \
+            image. Note that the full resolution image is most probably \
+            limited in resolution by your screen. The reconstructed image \
+            will have dimensions of your selected number of pixels. \
+            This type of filtering is \
             also called low-pass filter, because we are throwing out high \
             frequencies of the FT.\
             '
@@ -84,7 +85,7 @@ def compress_fourier(server):
             "text-align": "justify",
             }),
         html.P(children=[
-            'You can inspect the results by eye or quantify it \
+            'You can inspect the results by eye and quantify the saved disk space \
             using so called ',
             html.A(['compression ratio'],
                    href='https://en.wikipedia.org/wiki/Data_compression_ratio',

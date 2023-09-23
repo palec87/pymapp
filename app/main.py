@@ -4,6 +4,7 @@ from flask import Flask
 from gallery.probability import prob_pee_sea
 from gallery.quadratic import quad_pizza
 from gallery.fft_compression import compress_fourier
+from gallery.newton_disc import nd
 import routes
 import gallery
 
@@ -45,6 +46,7 @@ app.register_blueprint(gallery.bp_demo)
 app = prob_pee_sea(app)
 app = quad_pizza(app)
 app = compress_fourier(app)
+app = nd(app)
 
 if __name__ == "__main__":
     # from waitress import serve
