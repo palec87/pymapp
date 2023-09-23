@@ -6,7 +6,10 @@ from dash.dependencies import Input, Output
 from plotly.subplots import make_subplots
 from PIL import Image
 
+from flask import current_app
+
 hide_cont1_class = 'hide-cont-1'
+# print(current_app)
 
 
 def compress_fourier(server):
@@ -32,7 +35,7 @@ def compress_fourier(server):
                        style={'font-weight': 'bold'}),
                 ],
         ),
-        html.Img(src='/static/fig/fourier_greyscale.png',
+        html.Img(src='app/static/fig/fourier_greyscale.png',
                  alt='Portrait of Sir Joseph Fourier.',
                  style={
                     "width": "250px",
