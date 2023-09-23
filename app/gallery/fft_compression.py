@@ -6,10 +6,11 @@ from dash.dependencies import Input, Output
 from plotly.subplots import make_subplots
 from PIL import Image
 
-from flask import current_app
+import sys,os
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             os.pardir))
 
 hide_cont1_class = 'hide-cont-1'
-# print(current_app)
 
 
 def compress_fourier(server):
@@ -128,7 +129,8 @@ def compress_fourier(server):
     ], className='dash-area--main')
     print('loading...')
     # IMG_fft = np.load('app/static/fft_img_fourier.npy').view(complex)
-#     img = Image.open('/static/fig/fourier_greyscale.png').convert('L')
+    print(server)
+    img = Image.open('static/fig/fourier_greyscale.png').convert('L')
 #     IMG_fft = np.fft.fftshift(np.fft.fft2(img))
 #     IMG_fft_to_plot = np.log(abs(IMG_fft))
 
@@ -210,3 +212,9 @@ def compress_fourier(server):
 def calc_inverse_fft(img_fft):
     img_filt = np.fft.ifft2(np.fft.ifftshift(img_fft))
     return abs(np.flip(img_filt, axis=0))
+
+
+# if __name__ == '__main__':
+#     print(os.getcwd())
+#     print(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+#                              os.pardir))
