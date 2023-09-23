@@ -35,7 +35,7 @@ def compress_fourier(server):
                        style={'font-weight': 'bold'}),
                 ],
         ),
-        html.Img(src='static/fig/fourier_greyscale.png',
+        html.Img(src='/static/fig/fourier_greyscale.png',
                  alt='Portrait of Sir Joseph Fourier.',
                  style={
                     "width": "250px",
@@ -128,82 +128,82 @@ def compress_fourier(server):
     ], className='dash-area--main')
     print('loading...')
     # IMG_fft = np.load('app/static/fft_img_fourier.npy').view(complex)
-    img = Image.open('static/fig/fourier_greyscale.png').convert('L')
-    IMG_fft = np.fft.fftshift(np.fft.fft2(img))
-    IMG_fft_to_plot = np.log(abs(IMG_fft))
+#     img = Image.open('/static/fig/fourier_greyscale.png').convert('L')
+#     IMG_fft = np.fft.fftshift(np.fft.fft2(img))
+#     IMG_fft_to_plot = np.log(abs(IMG_fft))
 
-    @dash_app.callback(
-        Output('fourier_fft', 'figure'),
-        Input('slider_horizontal_pxs', 'value'),
-        Input('slider_vertical_pxs', 'value'),
-    )
-    def update_graph(npx_hor, npx_ver):
-        fig = go.Figure()
-        fig = make_subplots(
-                rows=1, cols=2,
-                subplot_titles=('FFT of Sir Fourier',
-                                'Compressed Image',
-                                ),
-                column_widths=[0.48, 0.48],
-                horizontal_spacing=0.15
-                )
-        fig.update_layout(
-            margin=dict(
-                l=10,
-                r=10,
-                b=30,
-                t=70,
-                # pad=4
-            ),)
-        fig.add_trace(px.imshow(
-                        IMG_fft_to_plot,
-                        color_continuous_scale='gray',
-                        binary_string=True,
-                        ).data[0],
-                      row=1, col=1)
-        fig.update_layout(coloraxis_showscale=False)
-        img_width = 1619
-        img_height = 2048
-        fig.update_xaxes(showgrid=False,
-                         range=(0, img_width),
-                         row=1, col=1)
-        fig.update_yaxes(showgrid=False,
-                         scaleanchor='x',
-                         range=(0, img_height),
-                         row=1, col=1)
-        # fig.update_xaxes(showticklabels=False).update_yaxes(showticklabels=False)
-        fig.add_shape(
-            type="rect",
-            xref="x", yref="y",
-            x0=(img_width - npx_hor)//2, y0=(img_height - npx_ver)//2,
-            x1=(img_width + npx_hor)//2, y1=(img_height + npx_ver)//2,
-            line_color="blue",
-        )
+#     @dash_app.callback(
+#         Output('fourier_fft', 'figure'),
+#         Input('slider_horizontal_pxs', 'value'),
+#         Input('slider_vertical_pxs', 'value'),
+#     )
+#     def update_graph(npx_hor, npx_ver):
+#         fig = go.Figure()
+#         fig = make_subplots(
+#                 rows=1, cols=2,
+#                 subplot_titles=('FFT of Sir Fourier',
+#                                 'Compressed Image',
+#                                 ),
+#                 column_widths=[0.48, 0.48],
+#                 horizontal_spacing=0.15
+#                 )
+#         fig.update_layout(
+#             margin=dict(
+#                 l=10,
+#                 r=10,
+#                 b=30,
+#                 t=70,
+#                 # pad=4
+#             ),)
+#         fig.add_trace(px.imshow(
+#                         IMG_fft_to_plot,
+#                         color_continuous_scale='gray',
+#                         binary_string=True,
+#                         ).data[0],
+#                       row=1, col=1)
+#         fig.update_layout(coloraxis_showscale=False)
+#         img_width = 1619
+#         img_height = 2048
+#         fig.update_xaxes(showgrid=False,
+#                          range=(0, img_width),
+#                          row=1, col=1)
+#         fig.update_yaxes(showgrid=False,
+#                          scaleanchor='x',
+#                          range=(0, img_height),
+#                          row=1, col=1)
+#         # fig.update_xaxes(showticklabels=False).update_yaxes(showticklabels=False)
+#         fig.add_shape(
+#             type="rect",
+#             xref="x", yref="y",
+#             x0=(img_width - npx_hor)//2, y0=(img_height - npx_ver)//2,
+#             x1=(img_width + npx_hor)//2, y1=(img_height + npx_ver)//2,
+#             line_color="blue",
+#         )
 
-        # second version of this
-        nx = (img_width - npx_hor)//2
-        ny = (img_height - npx_ver)//2
-        print(nx, ny)
+#         # second version of this
+#         nx = (img_width - npx_hor)//2
+#         ny = (img_height - npx_ver)//2
+#         print(nx, ny)
 
-        fig.add_trace(px.imshow(
-                        # calc_inverse_fft(IMG_fft[iy0:iy1, ix0:ix1]),
-                        calc_inverse_fft(IMG_fft[ny:-ny-1, nx:-nx-1]),
-                        color_continuous_scale='gray',
-                        binary_string=True,
-                        ).data[0],
-                      row=1, col=2)
+#         fig.add_trace(px.imshow(
+#                         # calc_inverse_fft(IMG_fft[iy0:iy1, ix0:ix1]),
+#                         calc_inverse_fft(IMG_fft[ny:-ny-1, nx:-nx-1]),
+#                         color_continuous_scale='gray',
+#                         binary_string=True,
+#                         ).data[0],
+#                       row=1, col=2)
 
-        # calculate compressed ratio
-        size_original = np.prod(IMG_fft.shape)  # product of rows*cols
-        size_compressed = np.prod(IMG_fft[ny:-ny-1, nx:-nx-1].shape)
-        saved_space = 100*(1-(size_compressed/size_original))
+#         # calculate compressed ratio
+#         size_original = np.prod(IMG_fft.shape)  # product of rows*cols
+#         size_compressed = np.prod(IMG_fft[ny:-ny-1, nx:-nx-1].shape)
+#         saved_space = 100*(1-(size_compressed/size_original))
 
-        fig.update_xaxes(showgrid=False, range=(0, npx_hor), row=1, col=2)
-        fig.update_yaxes(showgrid=False, range=(0, npx_ver), row=1, col=2)
-        fig.update_layout(coloraxis_showscale=False)
-        fig.update_layout(title=f'saved space: {np.round(saved_space, 3)}% \
-(Zoom to some details to appreciate the resolution)')
-        return fig
+#         fig.update_xaxes(showgrid=False, range=(0, npx_hor), row=1, col=2)
+#         fig.update_yaxes(showgrid=False, range=(0, npx_ver), row=1, col=2)
+#         fig.update_layout(coloraxis_showscale=False)
+#         fig.update_layout(title=f'saved space: {np.round(saved_space, 3)}% \
+# (Zoom to some details to appreciate the resolution)')
+#         return fig
     return dash_app.server
 
 
