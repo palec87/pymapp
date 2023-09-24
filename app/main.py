@@ -1,10 +1,7 @@
 import os
 
 from flask import Flask
-from gallery.probability import prob_pee_sea
-from gallery.quadratic import quad_pizza
-from gallery.fft_compression import compress_fourier
-from gallery.newton_disc import nd
+
 import routes
 import gallery
 
@@ -26,6 +23,13 @@ try:
     os.makedirs(app.instance_path)
 except OSError:
     pass
+
+print(app.instance_path)
+
+from gallery.probability import prob_pee_sea
+from gallery.quadratic import quad_pizza
+from gallery.fft_compression import compress_fourier
+from gallery.newton_disc import nd
 
 # # root
 app.register_blueprint(routes.bp_home)
@@ -51,4 +55,4 @@ app = nd(app)
 if __name__ == "__main__":
     # from waitress import serve
     # serve(app, host="127.0.0.1", port=5000)
-    app.run()
+    app.run(debug=True)
