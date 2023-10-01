@@ -30,6 +30,7 @@ from gallery.probability import prob_pee_sea
 from gallery.quadratic import quad_pizza
 from gallery.fft_compression import compress_fourier
 from gallery.newton_disc import nd
+from gallery.spectrometer import spectrometer
 
 # # root
 app.register_blueprint(routes.bp_home)
@@ -51,8 +52,9 @@ app = prob_pee_sea(app)
 app = quad_pizza(app)
 app = compress_fourier(app)
 app = nd(app)
+app = spectrometer(app)
 
 if __name__ == "__main__":
     # from waitress import serve
     # serve(app, host="127.0.0.1", port=5000)
-    app.run(debug=True)
+    app.run()

@@ -187,6 +187,24 @@
         "url_sol_nb": "todo",
         "url_task_video": "todo",
         "url_sol_video": "todo"
+    },
+    "009": {
+        "title": "Spectrometer",
+        "author": "DP",
+        "last_update": "01-10-23",
+        "type": "dash",
+        "url": "./demo/app009/",
+        "tags_math": ["trigonometry", "radians", "intersections"],
+        "tags_python": ["functions"],
+        "tags_topic": [
+            "optics",
+            "spectrum"],
+        "pipe_name": "spectrometer",
+        "toc_figure": "fig/spectrometer.png",
+        "url_task_nb": "todo",
+        "url_sol_nb": "todo",
+        "url_task_video": "todo",
+        "url_sol_video": "todo"
     }
 
 }

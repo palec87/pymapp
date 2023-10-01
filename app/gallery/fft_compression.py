@@ -6,9 +6,9 @@ from dash.dependencies import Input, Output
 from plotly.subplots import make_subplots
 from PIL import Image
 
-import sys,os
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             os.pardir))
+# import sys, os
+# sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+#                              os.pardir))
 
 hide_cont1_class = 'hide-cont-1'
 
@@ -52,8 +52,8 @@ def compress_fourier(server):
             'The original size of this image is 1619 x 2048 pixels. \
             In the 8 bit greyscale representation as shown here (every \
             pixel has intensity values between 0-255, because \
-            255 = 2 ^ 8bits - 1), the memory necessary to store this image in bits is \
-            1619 * 2048 * 8 = 3.31 MB \
+            255 = 2 ^ 8bits - 1), the memory necessary to store this image in \
+            bits is 1619 * 2048 * 8 = 3.31 MB \
             in the worst case scenario if all pixels would be 255 \
             (all white). In reality, it takes about 1.97 MB on my machine.'],
             style={
@@ -62,7 +62,8 @@ def compress_fourier(server):
             }),
         html.P(children=[
             'Below on the left is the 2D Fourier transform of maestro \
-            Fourier, i.e. represented by amplitudes of sines and cosines. The white \
+            Fourier, i.e. represented by amplitudes of sines and cosines. \
+                The white \
             color represents high amplitude of particular frequency. \
             The center of the image corresponds to 0 frequency \
             (a constant) and usually dominates. \
@@ -89,7 +90,8 @@ def compress_fourier(server):
             "text-align": "justify",
             }),
         html.P(children=[
-            'You can inspect the results by eye and quantify the saved disk space \
+            'You can inspect the results by eye and quantify the saved \
+            disk space \
             using so called ',
             html.A(['compression ratio'],
                    href='https://en.wikipedia.org/wiki/Data_compression_ratio',
