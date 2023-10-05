@@ -210,12 +210,25 @@ def spectrometer(server):
                 'Test your spectrometer design before building it. \
                 Change prism material, position and shape of the prism \
                 (top prism angle) to see \
-                color dispersion through your prism.\
-                '],
+                color dispersion through your prism. Do not forget to \
+                zoom in to confirm the separation of the \
+                colors outside and inside of the prism. Note, that \
+                everything is in scale of centimeters. \
+                ',
+                html.H4('Food for thought:'),
+                html.Ol([html.Li('From changing the material, which one does \
+                                 have higher refractive index n, water or\
+                                 BK7 glass?'),
+                         html.Li('Is n higher for blue or red color?'),
+                         html.Li('Why do the colors disappear for \
+                                 a combination of BK7 glass and 65 degrees \
+                                 prism angle?')]),
+                ],
                 style={
                     "width": "90%",
                     "text-align": "justify",
                 }),
+
             ]),
         html.Div([
             # Graph
@@ -230,8 +243,11 @@ def spectrometer(server):
             html.Div([
                 html.H5('Material'),
                 html.Div([
-                    dcc.Dropdown(['BK7', 'water'], 'water',
-                                id='mat-dropdown'),
+                    dcc.Dropdown(options={
+                                    'BK7': 'glass (BK7)',
+                                    'water': 'Water'},
+                                 value='water',
+                                 id='mat-dropdown'),
                     html.Div(id='dd-mat')
                 ]),
 
@@ -241,7 +257,8 @@ def spectrometer(server):
                         0.1, 3, step=0.2,
                         id='slider_prism_in',
                         value=1, marks={0.1: '0.1', 1: '1', 3: '3'},
-                        tooltip={"placement": "bottom", "always_visible": True},
+                        tooltip={"placement": "bottom",
+                                 "always_visible": True},
                     ),
                 ),
 
@@ -251,7 +268,8 @@ def spectrometer(server):
                         10, 70, step=5,
                         id='slider_prism_angle',
                         value=50, marks={10: '10', 30: '30', 60: '60'},
-                        tooltip={"placement": "bottom", "always_visible": True},
+                        tooltip={"placement": "bottom",
+                                 "always_visible": True},
                     ),
                 ),
 
@@ -276,7 +294,7 @@ def spectrometer(server):
         p1 = entry_point(prism_in, 0, prism_angle)
 
         # from the slit to the prism
-        line0 = line_from2points(0, 0, p1[0], p1[1])
+        line_from2points(0, 0, p1[0], p1[1])
 
         plot_light_beam(fig)
         plot_slit(fig, d_slit)
@@ -290,11 +308,12 @@ def spectrometer(server):
         # fig.add_trace(go.Scatter(x=[p1[0]], y=[p1[1]]))
         mn_y, mx_y = 1000, -1000
         for i in range(len(lambdas)):
-            points_x, points_y = refraction_path_from_prism(mat=material,
-                                                            lam=lambdas[i],
-                                                            prism=prism,
-                                                            prism_in=prism_in,
-                                                            prism_angle=prism_angle)
+            points_x, points_y = refraction_path_from_prism(
+                                            mat=material,
+                                            lam=lambdas[i],
+                                            prism=prism,
+                                            prism_in=prism_in,
+                                            prism_angle=prism_angle)
             mn_y = min(points_y[-1], mn_y)
             mx_y = max(points_y[-1], mx_y)
             fig.add_trace(go.Scatter(x=points_x, y=points_y,
@@ -306,7 +325,8 @@ def spectrometer(server):
         fig['layout'].update(width=500,
                              height=500,
                              autosize=False,
-                             title=f'separation of red and violet: {np.round(abs(abs(mn_y)-abs(mx_y)), 2)} cm')
+                             title=f'separation of two outmost colors: \
+{np.round(abs(abs(mn_y)-abs(mx_y)), 2)} cm')
         # fig.update_xaxes(showgrid=False)
         # fig.update_yaxes(showgrid=False)
         fig.update_layout(coloraxis_showscale=False,
@@ -317,11 +337,11 @@ def spectrometer(server):
                                 r=0,
                                 b=0,
                                 t=30,),
-        )
+                          )
         fig.update_yaxes(
             scaleanchor="x",
             scaleratio=1,
-  )
+        )
 
         return fig
     return dash_app.server

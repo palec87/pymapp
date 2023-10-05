@@ -1,4 +1,62 @@
 {
+    "009": {
+        "title": "Spectrometer",
+        "author": "DP",
+        "last_update": "01-10-23",
+        "type": "dash",
+        "url": "./demo/app009/",
+        "tags_math": ["trigonometry", "radians", "intersections"],
+        "tags_python": ["functions"],
+        "tags_topic": [
+            "optics",
+            "spectrum"],
+        "pipe_name": "spectrometer",
+        "toc_figure": "fig/spectrometer_90deg_small_res.png",
+        "url_task_nb": "todo",
+        "url_sol_nb": "todo",
+        "url_task_video": "todo",
+        "url_sol_video": "todo"
+    },
+    "008": {
+        "title": "Newton disc",
+        "author": "DP",
+        "last_update": "23-09-23",
+        "type": "dash",
+        "url": "./demo/app008/",
+        "tags_math": [],
+        "tags_python": [],
+        "tags_topic": [
+            "optics",
+            "spectrum",
+            "vision"],
+        "pipe_name": "newton_disc",
+        "toc_figure": "fig/newton_disc.png",
+        "url_task_nb": "todo",
+        "url_sol_nb": "todo",
+        "url_task_video": "todo",
+        "url_sol_video": "todo"
+    },
+    "007": {
+        "title": "Fourier Image Compression",
+        "author": "DP",
+        "last_update": "23-07-09",
+        "type": "dash",
+        "url": "./demo/app007/",
+        "tags_math": [
+            "Fourier analysis"
+            ],
+        "tags_python": [
+            "signal processing"],
+        "tags_topic": [
+            "introduction",
+            "image compression"],
+        "pipe_name": "fft_compression",
+        "toc_figure": "fig/fft_compression.png",
+        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_task.ipynb",
+        "url_sol_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_solution.ipynb",
+        "url_task_video": "todo",
+        "url_sol_video": "todo"
+    },
     "001": {
         "title": "Fourier Transform Intro",
         "author": "DP",
@@ -94,9 +152,9 @@
         "pipe_name": "sets_intro",
         "toc_figure": "fig/sets_intro_pymapp.png",
         "url_task_nb": "todo",
-        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?labpath=%2Fen%2F03_sets%2Fsets_intro.ipynb",
-        "url_task_video":"todo",
-        "url_sol_video":"https://www.youtube.com/watch?v=R0bMw1VEDzQ"
+        "url_sol_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?labpath=%2Fen%2F03_sets%2Fsets_intro.ipynb",
+        "url_task_video": "todo",
+        "url_sol_video": "https://www.youtube.com/watch?v=R0bMw1VEDzQ"
     },
     "005": {
         "title": "Forest firest",
@@ -121,9 +179,9 @@
         "pipe_name": "sets_forest_fires",
         "toc_figure": "fig/forest_fires_pymapp.png",
         "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F03_sets%2Fforest_fires_task.ipynb",
-        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F03_sets%2Fforest_fires_solution.ipynb",
-        "url_task_video":"https://youtu.be/lL8f9M51ZNI",
-        "url_sol_video":"https://youtu.be/X5RLgsM6mlU"
+        "url_sol_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F03_sets%2Fforest_fires_solution.ipynb",
+        "url_task_video": "https://youtu.be/lL8f9M51ZNI",
+        "url_sol_video": "https://youtu.be/X5RLgsM6mlU"
     },
     "006": {
         "title": "Demand curve",
@@ -145,66 +203,8 @@
         "pipe_name": "quad_demand",
         "toc_figure": "fig/demand_curve_pymapp.png",
         "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_task.ipynb",
-        "url_sol_nb":"https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_solution.ipynb",
-        "url_task_video":"https://youtu.be/vBzsQDwDu80",
-        "url_sol_video":"https://youtu.be/dNCAx7WS8-U"
-    },
-    "007": {
-        "title": "Fourier Image Compression",
-        "author": "DP",
-        "last_update": "23-07-09",
-        "type": "dash",
-        "url": "./demo/app007/",
-        "tags_math": [
-            "Fourier analysis"
-            ],
-        "tags_python": [
-            "signal processing"],
-        "tags_topic": [
-            "introduction",
-            "image compression"],
-        "pipe_name": "fft_compression",
-        "toc_figure": "fig/fft_compression.png",
-        "url_task_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_task.ipynb",
-        "url_sol_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F06_goniometry%2Fimage_compression_solution.ipynb",
-        "url_task_video": "todo",
-        "url_sol_video": "todo"
-    },
-    "008": {
-        "title": "Newton disc",
-        "author": "DP",
-        "last_update": "23-09-23",
-        "type": "dash",
-        "url": "./demo/app008/",
-        "tags_math": [],
-        "tags_python": [],
-        "tags_topic": [
-            "optics",
-            "spectrum"],
-        "pipe_name": "newton_disc",
-        "toc_figure": "fig/newton_disc.png",
-        "url_task_nb": "todo",
-        "url_sol_nb": "todo",
-        "url_task_video": "todo",
-        "url_sol_video": "todo"
-    },
-    "009": {
-        "title": "Spectrometer",
-        "author": "DP",
-        "last_update": "01-10-23",
-        "type": "dash",
-        "url": "./demo/app009/",
-        "tags_math": ["trigonometry", "radians", "intersections"],
-        "tags_python": ["functions"],
-        "tags_topic": [
-            "optics",
-            "spectrum"],
-        "pipe_name": "spectrometer",
-        "toc_figure": "fig/spectrometer.png",
-        "url_task_nb": "todo",
-        "url_sol_nb": "todo",
-        "url_task_video": "todo",
-        "url_sol_video": "todo"
+        "url_sol_nb": "https://mybinder.org/v2/gh/palec87/pymarad/main?filepath=en%2F01_quadratic%2Fquadratic_demand_solution.ipynb",
+        "url_task_video": "https://youtu.be/vBzsQDwDu80",
+        "url_sol_video": "https://youtu.be/dNCAx7WS8-U"
     }
-
 }

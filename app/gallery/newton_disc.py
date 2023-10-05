@@ -74,10 +74,36 @@ def nd(server):
     )
     dash_app.layout = html.Div([
         html.P(children=[
-            'Newton disc demonstrates that all the colors of the \
-            rainbow combine into a white light. The colors are \
-            in order: green, blue, indigo, violet, red, orange and yellow.  \
-            '],
+            'Newton disc demonstrates that 7 principle colors of the \
+            rainbow combine into a white light. The colors are: green\
+            , blue, indigo, violet, red, orange and yellow.  \
+            Why this is supposed to work is because an image persists in the\
+            brain \
+            for approximatelly 1/16 of a second, due to the ',
+            html.A('vision persistence',
+                   href="https://en.wikipedia.org/wiki/Persistence_of_vision",
+                   target="_blank"),
+            ' effect.',
+            html.P('Unfortunately the result is underwhelming, compared \
+                   to the one you can build yourself at home. \
+                   I blame the refresh rate of the computer screen, \
+                   which is only 50 Hz.',),
+            html.H4('Food for thought:'),
+            html.Ol([html.Li('Do you know what is Hz, and how many \
+                             images shown per second it corresponds to?'),
+                     html.Li('Do you know what is the minimum frequency \
+                             (in Hz) \
+                             for the images to be percieved as motion\
+                             pictures, \
+                             ie. a movie?'),
+                     html.Li('If the above is true, an image stays in your \
+                             brain for 1/16 s and you need to cycle through \
+                             7 colors in order to perceive white color, \
+                             what frame rate (frequency of changing images)\
+                             you need. Is it higher \
+                             than 50 Hz?'),
+                     ]),
+            ],
             style={
                 "width": "90%",
                 "text-align": "justify",
